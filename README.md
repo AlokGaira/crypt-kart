@@ -123,9 +123,13 @@ curl -X PUT \
   -d '{
 	"jwt_secret": "jwte"
 }'
+```
 
-node client/delete_config.js
+```$shell
+// Get to the root directory crypt-kart and run the follwing command
+// Please go inside the corresponding files to update record parameters
 
+node client/update_config.js
 ```
 
 
