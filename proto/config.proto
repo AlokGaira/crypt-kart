@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+service ConfigService {
+    rpc List (Empty) returns (ConfigList) {}
+    rpc Insert (ConfigCreate) returns (Config) {}
+    rpc Delete (ConfigRequestId) returns (Config) {}
+    rpc Find (ConfigRequestId) returns (Config) {}
+    rpc Update (ConfigUpdate) returns (ConfigUpdate) {}
+}
+message Empty {}
+
+
+message Config {
+    string jwt_secret = 1;
+    string timeout_in_ms = 2;
+    string remote_db_url = 3;
+    int32 remote_db_port = 4;
+    int32 createdAt = 5;
+    int32 updatedAt = 6;
+    string id = 7;
+}
+
+
+message ConfigCreate {
+    string jwt_secret = 1;
+    string timeout_in_ms = 2;
+    string remote_db_url = 3;
+    int32 remote_db_port = 4;
+}
+
+message ConfigUpdate {
+    string jwt_secret = 1;
+    string timeout_in_ms = 2;
+    string remote_db_url = 3;
+    int32 remote_db_port = 4;
+    string id = 5;
+}
+
+message ConfigList {
+   repeated Config notes = 1;
+}
+
+message ConfigRequestId {
+    string id = 1;
+}
